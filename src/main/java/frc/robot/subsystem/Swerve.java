@@ -1,6 +1,6 @@
 //Generously given to us by Oscar, eliminates lots of the BS CTRE added into their swerve code. 
 
-package frc.robot;
+package frc.robot.subsystem;
 
 import java.util.function.Supplier;
 
