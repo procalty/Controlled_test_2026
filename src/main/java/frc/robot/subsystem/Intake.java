@@ -62,6 +62,7 @@ public class Intake extends SubsystemBase {
   public Intake() {
     m_IntakeRoller.getConfigurator().apply(BotConstants.Intake.cfg_Roller);
     m_IntakePivot.getConfigurator().apply(BotConstants.Intake.cfg_Pivot);
+    stow();
   }
 
   //Set roller and pivot state together

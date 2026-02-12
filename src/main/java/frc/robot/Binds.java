@@ -9,9 +9,7 @@ import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
-import frc.robot.commands.AutoAlign;
 import frc.robot.subsystem.Intake;
-import frc.robot.subsystem.Shooter;
 import frc.robot.subsystem.Swerve;
 import frc.robot.subsystem.Intake.Pivot;
 import frc.robot.util.*;
@@ -76,6 +74,8 @@ public static final class Controller {
 			.withVelocityX(getDriveForward())
 			.withVelocityY(getDriveRight())
 			.withRotationalRate(getRotationClockwise()))); //Standard driving
+        HumanControls.SingleXboxController.A.whileTrue(Intake.get().intake_Command());
+        HumanControls.SingleXboxController.A.whileFalse(Intake.get().stow());
 				
 		}
 	}
