@@ -8,6 +8,7 @@ import static edu.wpi.first.units.Units.*;
 
 import com.ctre.phoenix6.CANBus;
 import com.ctre.phoenix6.configs.TalonFXConfiguration;
+import com.ctre.phoenix6.signals.InvertedValue;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 
 import edu.wpi.first.math.interpolation.InterpolatingDoubleTreeMap;
@@ -32,18 +33,26 @@ public class BotConstants {
         public static TalonFXConfiguration cfg_Roller = new TalonFXConfiguration();
         public static TalonFXConfiguration cfg_Pivot = new TalonFXConfiguration();
         static{
-            cfg_Roller.Slot0.kP = 1.0;
-            cfg_Roller.MotorOutput.NeutralMode = NeutralModeValue.Brake;
-            cfg_Roller.MotionMagic.MotionMagicAcceleration = 40;
-            cfg_Roller.MotionMagic.MotionMagicCruiseVelocity = 20;
+            cfg_Roller.Slot0.kP = 3.0;
+            cfg_Roller.MotorOutput.NeutralMode = NeutralModeValue.Coast;
+            cfg_Roller.MotionMagic.MotionMagicAcceleration = 1;
+            cfg_Roller.MotionMagic.MotionMagicCruiseVelocity = 10;
             cfg_Roller.CurrentLimits.StatorCurrentLimitEnable = false;
-            cfg_Roller.CurrentLimits.SupplyCurrentLimitEnable = false;
-            cfg_Roller.CurrentLimits.StatorCurrentLimit = 120.;
+            cfg_Roller.CurrentLimits.SupplyCurrentLimitEnable = true;
+            cfg_Roller.CurrentLimits.StatorCurrentLimit = 10.;
         }
         static{
             cfg_Pivot.Slot0.kP = 10.0;
-            cfg_Pivot.Slot0.kD = 2.0;
+            cfg_Pivot.Slot0.kD = 0.0;
+            cfg_Pivot.Slot0.kG = 0.3;
+            cfg_Pivot.SoftwareLimitSwitch.ReverseSoftLimitThreshold = 0.0;
             cfg_Pivot.MotorOutput.NeutralMode = NeutralModeValue.Brake;
+            cfg_Pivot.CurrentLimits.StatorCurrentLimitEnable = true;
+            cfg_Pivot.CurrentLimits.StatorCurrentLimit = 10.;
+
+            cfg_Pivot.MotionMagic.MotionMagicCruiseVelocity = 5;  // Add this
+            cfg_Pivot.MotionMagic.MotionMagicAcceleration = 1;   // Add this
+            cfg_Pivot.MotionMagic.MotionMagicJerk = 200;          // Add this
         }
     }
 

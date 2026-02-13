@@ -46,10 +46,11 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopInit() {
-    Intake.get().stow().schedule();
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
+
     }
+    Intake.get().stow().schedule();
   }
 
   @Override

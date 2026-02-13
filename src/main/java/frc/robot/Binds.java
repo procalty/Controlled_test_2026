@@ -75,9 +75,13 @@ public static final class Controller {
 			.withVelocityX(getDriveForward())
 			.withVelocityY(getDriveRight())
 			.withRotationalRate(getRotationClockwise()))); //Standard driving
-        HumanControls.SingleXboxController.A.whileTrue(Intake.get().intake_Command());
-        HumanControls.SingleXboxController.A.onFalse(Intake.get().stow());
-        HumanControls.SingleXboxController.B.onTrue(new InstantCommand(() -> Swerve.get().seedFieldCentric()));
+        // HumanControls.SingleXboxController.A.onTrue(Intake.get().intake_Command());
+        HumanControls.SingleXboxController.A.whileTrue(Intake.get().intake_pivot());
+        HumanControls.SingleXboxController.B.whileTrue(Intake.get().intake_run());
+
+
+        // HumanControls.SingleXboxController.A.onFalse(Intake.get().stow());
+        // HumanControls.SingleXboxController.B.onTrue(new InstantCommand(() -> Swerve.get().seedFieldCentric()));
         
 				
 		}
