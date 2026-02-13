@@ -32,7 +32,7 @@ public class BotConstants {
         public static TalonFXConfiguration cfg_Roller = new TalonFXConfiguration();
         public static TalonFXConfiguration cfg_Pivot = new TalonFXConfiguration();
         static{
-            cfg_Roller.Slot0.kP = 0.0;
+            cfg_Roller.Slot0.kP = 1.0;
             cfg_Roller.MotorOutput.NeutralMode = NeutralModeValue.Brake;
             cfg_Roller.MotionMagic.MotionMagicAcceleration = 40;
             cfg_Roller.MotionMagic.MotionMagicCruiseVelocity = 20;
@@ -41,9 +41,8 @@ public class BotConstants {
             cfg_Roller.CurrentLimits.StatorCurrentLimit = 120.;
         }
         static{
-            cfg_Pivot.Slot0.kP = 0.0;
-            cfg_Pivot.Slot0.kI = 0.0;
-            cfg_Pivot.Slot0.kP = 0.0;
+            cfg_Pivot.Slot0.kP = 10.0;
+            cfg_Pivot.Slot0.kD = 2.0;
             cfg_Pivot.MotorOutput.NeutralMode = NeutralModeValue.Brake;
         }
     }

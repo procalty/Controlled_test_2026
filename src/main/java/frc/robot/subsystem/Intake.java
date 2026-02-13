@@ -93,6 +93,10 @@ public class Intake extends SubsystemBase {
   @Override
   //Sets the values
   public void periodic() {
+    m_IntakeRoller.setVoltage(mState.roller_voltage);
+    
+    // Apply pivot position
+    m_IntakePivot.setControl(PivotPositionControl.withPosition(mPivot.position));
     
   }
 }

@@ -76,7 +76,7 @@ public static final class Controller {
 			.withVelocityY(getDriveRight())
 			.withRotationalRate(getRotationClockwise()))); //Standard driving
         HumanControls.SingleXboxController.A.whileTrue(Intake.get().intake_Command());
-        //HumanControls.SingleXboxController.A.whileFalse(Intake.get().stow());
+        HumanControls.SingleXboxController.A.onFalse(Intake.get().stow());
         HumanControls.SingleXboxController.B.onTrue(new InstantCommand(() -> Swerve.get().seedFieldCentric()));
         
 				
