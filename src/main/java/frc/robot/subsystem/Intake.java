@@ -64,19 +64,29 @@ public class Intake extends SubsystemBase {
     m_IntakePivot.getConfigurator().apply(BotConstants.Intake.cfg_Pivot);
   }
 
+
+  public Command setRollerState(State state){
+    return runOnce(()-> mState = state);
+  }
+
+  public Command setPivotState(Pivot pivot){
+    return runOnce(()->mPivot = pivot);
+  }
+  
+
   //Set roller and pivot state together
   public Command intake_Command(){
-    return run(()->{
-    m_IntakePivot.setControl(PivotPositionControl.withPosition(mPivot.position)); 
-    m_IntakeRoller.setVoltage(mState.roller_voltage);});
+    return setPivotState(Pivot.DEPLOY).andThen(setRollerState(State.INTAKE));
   }
+
 
   //Stows, basically sets everything to 0
   public Command stow(){
-    return run(()->{
-      m_IntakePivot.setControl(PivotPositionControl.withPosition(0));
-      m_IntakeRoller.setVoltage(0);
-    });
+    return setPivotState(Pivot.STOW).andThen(setRollerState(State.IDLE));
+  }
+
+  public Command Outtake_Command(){
+    return setPivotState(Pivot.DEPLOY).andThen(setRollerState(State.OUTTAKE));
   }
 
 
