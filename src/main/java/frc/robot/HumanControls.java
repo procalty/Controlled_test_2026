@@ -28,9 +28,9 @@ public class HumanControls {
     public static final class SingleXboxController{
         public static final CommandXboxController controller = new CommandXboxController(0);
 
-        public static final DoubleSupplier leftJoyY =  ()->-controller.getRawAxis(1);
-        public static final DoubleSupplier leftJoyX =  ()->-controller.getRawAxis(0);
-        public static final DoubleSupplier rightJoyX = ()->-controller.getRawAxis(4);
+        public static final DoubleSupplier leftJoyY =  ()->controller.getRawAxis(1);
+        public static final DoubleSupplier leftJoyX =  ()->controller.getRawAxis(0);
+        public static final DoubleSupplier rightJoyX = ()->controller.getRawAxis(4);
 
         public static final Trigger A = controller.a();
         public static final Trigger B = controller.b();

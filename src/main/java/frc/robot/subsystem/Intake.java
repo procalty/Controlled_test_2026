@@ -39,12 +39,12 @@ public class Intake extends SubsystemBase {
   //Enum to determin pivot position, values are temporary
   public enum Pivot{
     STOW(0.0),
-    DEPLOY(45.0);
+    DEPLOY(5.62793);
 
-    public double angle;
+    public double position;
 
-    Pivot(double angle){
-      this.angle = angle;
+    Pivot(double position){
+      this.position = position;
     }
   }
   
@@ -62,13 +62,12 @@ public class Intake extends SubsystemBase {
   public Intake() {
     m_IntakeRoller.getConfigurator().apply(BotConstants.Intake.cfg_Roller);
     m_IntakePivot.getConfigurator().apply(BotConstants.Intake.cfg_Pivot);
-    stow();
   }
 
   //Set roller and pivot state together
   public Command intake_Command(){
     return run(()->{
-    m_IntakePivot.setControl(PivotPositionControl.withPosition(mPivot.angle/360)); //Have to divide by 360 because the angle of the pivot is going to be set in degrees, but is up to changees
+    m_IntakePivot.setControl(PivotPositionControl.withPosition(mPivot.position)); 
     m_IntakeRoller.setVoltage(mState.roller_voltage);});
   }
 

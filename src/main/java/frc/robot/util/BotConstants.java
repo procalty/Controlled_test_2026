@@ -27,8 +27,8 @@ public class BotConstants {
 
 //All these values are temporary.
     public static class Intake{
-        public static final int pivotID = 1;
-        public static final int intakeID = 2;
+        public static final int pivotID = 22;
+        public static final int intakeID = 21;
         public static TalonFXConfiguration cfg_Roller = new TalonFXConfiguration();
         public static TalonFXConfiguration cfg_Pivot = new TalonFXConfiguration();
         static{
@@ -44,11 +44,12 @@ public class BotConstants {
             cfg_Pivot.Slot0.kP = 0.0;
             cfg_Pivot.Slot0.kI = 0.0;
             cfg_Pivot.Slot0.kP = 0.0;
+            cfg_Pivot.MotorOutput.NeutralMode = NeutralModeValue.Brake;
         }
     }
 
     public static class Hopper{
-        public static final int HopperID = 3;
+        public static final int HopperID = 0;
         public static final int HopperBeamBreakID = 0;
 
         static{
@@ -57,8 +58,8 @@ public class BotConstants {
     }
 
     public static class Shooter{
-        public static final int shooterflywheel_ID = 4;
-        public static final int shooterIntake_ID = 5;
+        public static final int shooterflywheel_ID = 0;
+        public static final int shooterIntake_ID = 0;
         public static final TalonFXConfiguration cfg_shooter = new TalonFXConfiguration();
         public static final TalonFXConfiguration cfg_shooter_intake = new TalonFXConfiguration();
         public static final InterpolatingDoubleTreeMap velocityTable = new InterpolatingDoubleTreeMap();
@@ -80,7 +81,7 @@ public class BotConstants {
     }
 
     public static class Hood{
-        public static final int Hood_ID = 6;
+        public static final int Hood_ID = 0;
         public static final TalonFXConfiguration cfg_Hood = new TalonFXConfiguration();
         public static final InterpolatingDoubleTreeMap shooterTable = new InterpolatingDoubleTreeMap();
         static{
@@ -99,8 +100,8 @@ public class BotConstants {
     }
 
     public static class Climber{
-        public static final int Climber_1_ID = 8;
-        public static final int Climber_2_ID = 9;
+        public static final int Climber_1_ID = 0;
+        public static final int Climber_2_ID = 0;
         public static final TalonFXConfiguration cfg_Climber1 = new TalonFXConfiguration();
         public static final TalonFXConfiguration cfg_Climber2 = new TalonFXConfiguration();
         public static final double gearRatio = 1;

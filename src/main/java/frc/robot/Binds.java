@@ -40,7 +40,8 @@ public static final class DriverStation2026 {
 	public static final void bind() {
 					// Map Joysticks
 		Swerve.get().setDefaultCommand(Swerve.get().applyRequest(
-			() -> swerveFCDriveRequest.withVelocityX(Math.pow(HumanControls.DriverPanel.leftJoyY.getAsDouble(), 2))
+			() -> swerveFCDriveRequest
+                .withVelocityX(Math.pow(HumanControls.DriverPanel.leftJoyY.getAsDouble(), 2))
 				.withVelocityY(Math.pow(HumanControls.DriverPanel.leftJoyX.getAsDouble(), 2))
 				.withRotationalRate(Math.pow(HumanControls.DriverPanel.rightJoyX.getAsDouble(), 2))));
 			
@@ -75,7 +76,9 @@ public static final class Controller {
 			.withVelocityY(getDriveRight())
 			.withRotationalRate(getRotationClockwise()))); //Standard driving
         HumanControls.SingleXboxController.A.whileTrue(Intake.get().intake_Command());
-        HumanControls.SingleXboxController.A.whileFalse(Intake.get().stow());
+        //HumanControls.SingleXboxController.A.whileFalse(Intake.get().stow());
+        HumanControls.SingleXboxController.B.onTrue(new InstantCommand(() -> Swerve.get().seedFieldCentric()));
+        
 				
 		}
 	}
