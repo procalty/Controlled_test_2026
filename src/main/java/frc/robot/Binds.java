@@ -76,8 +76,7 @@ public static final class Controller {
 			.withVelocityY(getDriveRight())
 			.withRotationalRate(getRotationClockwise()))); //Standard driving
         // HumanControls.SingleXboxController.A.onTrue(Intake.get().intake_Command());
-        HumanControls.SingleXboxController.A.whileTrue(Intake.get().intake_pivot());
-        HumanControls.SingleXboxController.B.whileTrue(Intake.get().intake_run());
+        HumanControls.SingleXboxController.A.whileTrue(Intake.get().doIntake());
 
 
         // HumanControls.SingleXboxController.A.onFalse(Intake.get().stow());

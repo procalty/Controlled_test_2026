@@ -33,26 +33,23 @@ public class BotConstants {
         public static TalonFXConfiguration cfg_Roller = new TalonFXConfiguration();
         public static TalonFXConfiguration cfg_Pivot = new TalonFXConfiguration();
         static{
-            cfg_Roller.Slot0.kP = 3.0;
+            cfg_Roller.Slot0.kP = .45;
+            cfg_Roller.Slot0.kV = .1;
+            cfg_Roller.Slot0.kS = .1;
+            cfg_Roller.MotorOutput.Inverted = InvertedValue.Clockwise_Positive;
             cfg_Roller.MotorOutput.NeutralMode = NeutralModeValue.Coast;
-            cfg_Roller.MotionMagic.MotionMagicAcceleration = 1;
-            cfg_Roller.MotionMagic.MotionMagicCruiseVelocity = 10;
+            cfg_Roller.MotionMagic.MotionMagicAcceleration = 3000.0 / 60.0;
+            cfg_Roller.MotionMagic.MotionMagicCruiseVelocity = 6000.0 / 60.0;
             cfg_Roller.CurrentLimits.StatorCurrentLimitEnable = false;
             cfg_Roller.CurrentLimits.SupplyCurrentLimitEnable = true;
-            cfg_Roller.CurrentLimits.StatorCurrentLimit = 10.;
-        }
-        static{
-            cfg_Pivot.Slot0.kP = 10.0;
+            cfg_Roller.CurrentLimits.StatorCurrentLimit = 30.;
+    
+            cfg_Pivot.Slot0.kP = -7.;
             cfg_Pivot.Slot0.kD = 0.0;
-            cfg_Pivot.Slot0.kG = 0.3;
-            cfg_Pivot.SoftwareLimitSwitch.ReverseSoftLimitThreshold = 0.0;
+
             cfg_Pivot.MotorOutput.NeutralMode = NeutralModeValue.Brake;
             cfg_Pivot.CurrentLimits.StatorCurrentLimitEnable = true;
-            cfg_Pivot.CurrentLimits.StatorCurrentLimit = 10.;
-
-            cfg_Pivot.MotionMagic.MotionMagicCruiseVelocity = 5;  // Add this
-            cfg_Pivot.MotionMagic.MotionMagicAcceleration = 1;   // Add this
-            cfg_Pivot.MotionMagic.MotionMagicJerk = 200;          // Add this
+            cfg_Pivot.CurrentLimits.StatorCurrentLimit = 60.;
         }
     }
 

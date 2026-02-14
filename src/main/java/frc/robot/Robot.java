@@ -50,7 +50,6 @@ public class Robot extends TimedRobot {
       m_autonomousCommand.cancel();
 
     }
-    Intake.get().stow().schedule();
   }
 
   @Override
